@@ -24,15 +24,24 @@ void insert(int keys[], int size){
     }
 }
 
+void deletion(int key){
+    if (key >= 0)
+        hash[key][0] = false;
+    else
+        hash[std::abs(key)][1] = false;
+}
+
 int main(){
     int keys[] = {1, -5, 2, 3, 0, -10, 15};
     int size = sizeof(keys) / sizeof(int);
     insert(keys, size);
-    
+    deletion(2);
+
     for (int i = -10; i != 17; ++i){
         if(search(i))
             std::cout << i << " is present" << std::endl;
         else
             std::cout << i << " is not present" << std::endl;
     }
+
 }
